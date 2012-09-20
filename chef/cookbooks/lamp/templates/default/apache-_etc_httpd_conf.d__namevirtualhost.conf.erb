@@ -1,0 +1,16 @@
+# Generated from chef cookbook lamp/template/apache-_etc_httpd_conf.d__namevirtualhost.conf
+NameVirtualHost *:80
+<VirtualHost *:80>
+        DocumentRoot /var/www/html/
+        ServerAdmin <%= node[:contact][:email] %>
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride None
+        </Directory>
+        <Directory /var/www/html/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        </Directory>
+</VirtualHost>
