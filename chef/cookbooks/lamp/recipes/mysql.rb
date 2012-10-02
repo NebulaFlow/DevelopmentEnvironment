@@ -1,5 +1,7 @@
 # /recipes/mysql.rb
 
+include_recipe "lamp::repo-remi"
+
 # Install
 yum_package "mysql-server"
 case node['lamp']['env']
@@ -7,6 +9,12 @@ when "dev"
 	yum_package "mysqlreport"
 	yum_package "mysqltuner"
 	yum_package "mytop"
+end
+
+# Set to auto-start and start it now
+service "mysqld" do
+	supports :status => true, :restart => true, :reload => true
+	action [ :enable, :start ]
 end
 
 # Configure
@@ -17,9 +25,4 @@ bash "mysql-hardening" do
 		mysql -u root -p#{node[:lamp][:mysql_password]} -e 'DROP DATABASE test;'
 	EOH
 	not_if "mysql -u root -p#{node[:lamp][:mysql_password]} -e 'show databases' | grep -q test"
-end
-# Set to auto-start and start it now
-service "mysqld" do
-	supports :status => true, :restart => true, :reload => true
-	action [ :enable, :start ]
 end
