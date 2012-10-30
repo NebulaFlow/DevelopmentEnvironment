@@ -5,5 +5,5 @@
   "json_class": "Chef::Role", 
   "description": "The NebulaFlow all-in-one/standalone application server.", 
   "chef_type": "role", 
-  "run_list": [ "recipe[lamp]" ] 
+  "run_list": [ "recipe[apache]", "recipe[mysql]", "recipe[php]", "recipe[development::tools]" ] 
 }

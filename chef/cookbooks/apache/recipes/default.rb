@@ -1,4 +1,4 @@
-# /recipes/apache.rb
+# apache::default
 
 # Install
 yum_package "httpd"

@@ -1,3 +1,5 @@
+# repos::rpmforge
+
 case node[:platform]
 when "debian", "ubuntu"
 	# EPEL is not available for these distributions

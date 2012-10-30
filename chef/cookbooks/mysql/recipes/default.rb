@@ -1,6 +1,6 @@
-# /recipes/mysql.rb
+# mysql::default
 
-include_recipe "lamp::repo-remi"
+include_recipe "repos::remi"
 
 # Install
 yum_package "mysql-server"
@@ -24,5 +24,5 @@ bash "mysql-hardening" do
 		/usr/bin/mysqladmin -u root password '#{node[:lamp][:mysql_password]}'
 		mysql -u root -p#{node[:lamp][:mysql_password]} -e 'DROP DATABASE test;'
 	EOH
-	not_if "mysql -u root -p#{node[:lamp][:mysql_password]} -e 'show databases' | grep -q test"
+	only_if "mysql -u root -p#{node[:lamp][:mysql_password]} -e 'show databases' | grep -q test"
 end

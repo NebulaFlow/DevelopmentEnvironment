@@ -1,5 +1,6 @@
-# /recipes/repo-remi.rb
-include_recipe "lamp::repo-epel"
+# repos::remi
+
+include_recipe "repos::epel"
 
 major = node['platform_version'].to_i
 

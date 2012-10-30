@@ -1,3 +1,4 @@
+# repos::epel
 # Mostly stolen from https://github.com/rebbix/chef-cookbooks-yum/blob/master/recipes/epel.rb
 
 major = node['platform_version'].to_i
