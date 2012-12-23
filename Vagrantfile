@@ -51,9 +51,6 @@ Vagrant::Config.run do |config|
       :contact => {
         :email => "root@localhost"
       },
-      :prerequisites => {
-        "epel-repo" => "6-7"
-      },
       :lamp => {
         :env => "dev",
         :phpversion => "latest",
