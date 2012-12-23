@@ -10,8 +10,8 @@ when "debian", "ubuntu"
 when "redhat", "centos", "scientific"
 
 	execute "add_epel_repo" do
-		command "rpm -Uhv http://download.fedoraproject.org/pub/epel/#{major}/i386/epel-release-#{epel}.noarch.rpm"
-		not_if "rpm -qa | egrep -qx 'epel-release-#{epel}(|.noarch)'"
+		command "rpm -Uhv http://download.fedoraproject.org/pub/epel/#{major}/i386/epel-release-6-8.noarch.rpm"
+		not_if "rpm -qa | egrep -qx 'epel-release-6-8(|.noarch)'"
 	end
 
 end
